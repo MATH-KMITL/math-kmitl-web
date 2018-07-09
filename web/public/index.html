@@ -1,65 +1,454 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="th">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/4.12.0/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/4.12.0/firebase-auth.js"></script>
-    <script defer src="/__/firebase/4.12.0/firebase-database.js"></script>
-    <script defer src="/__/firebase/4.12.0/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/4.12.0/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+<head>
+	<title>ภาควิชาคณิตศาสตร์</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.png" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/themify/themify-icons.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!--===============================================================================================-->
+</head>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+    <!-- Header -->
+    <header>
+			<!-- Header desktop -->
+			<div class="wrap-menu-header gradient1 trans-0-4">
+				<div class="container h-full">
+					<div class="wrap_header trans-0-3">
+						<!-- Logo -->
+						<div class="logo">
+							<a href="index.html">
+								<img src="images/icons/logo1.png" alt="IMG-LOGO" data-logofixed="images/icons/logo1.png">
+							</a>
+						</div>
+	
+						<!-- Menu -->
+						<div class="wrap_menu p-l-45 p-l-0-xl">
+							<nav class="menu">
+								<ul class="main_menu">
+									<li>
+										<a href="index.html">หน้าหลัก</a>
+									</li>
+	
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											บุคลากร
+										</a>
+										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+											<a class="dropdown-item" href="staff.html">คณาจารย์</a>
+											<a class="dropdown-item" href="student.html">นักศึกษา</a>
+										</div>
+									</li>
+									<li>
+										<a href="gallery.html">กิจกรรม</a>
+									</li>
+	
+									<li>
+										<a href="blog.html">หัวข้อปัญหาพิเศษ</a>
+									</li>
+	
+									<li>
+										<a href="about.html">เกี่ยวกับภาควิชา</a>
+									</li>
+	
+	
+									<li>
+										<a href="contact.html">ติดต่อ</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+	
+						<!-- Social -->
+						<div class="social flex-w flex-l-m p-l-0-xl">
+							<a href="login.html">
+								<div id="login-box">เข้าสู่ระบบ</div>
+							</a>
+							<a href="https://web.facebook.com/MathKMITL/">
+								<i class="fa fa-facebook m-l-21" aria-hidden="true"></i>
+							</a>
+							<button class="btn-show-sidebar m-l-33 trans-0-4"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+	<!-- Sidebar -->
+    <!-- Sidebar -->
+    <aside class="sidebar trans-0-4">
+			<!-- Button Hide sidebar -->
+			<button class="btn-hide-sidebar ti-close color0-hov trans-0-4"></button>
+	
+			<!-- - -->
+			<ul class="menu-sidebar p-t-95 p-b-70">
+				<li class="t-center m-b-13">
+						<a class="nav-link t-center dropdown-toggle txt19" href="#" id="navbarDropdownMenuLink" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							บุคลากร
+						</a>
+						<div class="collapseOne" id="collapseOne" class="collapse show" aria-labelledby="headingOne" aria-labelledby="navbarDropdownMenuLink">
+							<a class="dropdown-item" href="staff.html">คณาจารย์</a>
+							<a class="dropdown-item" href="student.html">นักศึกษา</a>
+						</div>
+					</li>
+	
+				<li class="t-center m-b-13">
+					<a href="gallery.html" class="txt19">กิจกรรม</a>
+				</li>
+	
+				<li class="t-center m-b-13">
+					<a href="about.html" class="txt19">เกี่ยวกับภาควิชา</a>
+				</li>
+	
+				<li class="t-center m-b-13">
+					<a href="blog.html" class="txt19">หัวข้อปัญหาพิเศษ</a>
+				</li>
+	
+				<li class="t-center m-b-33">
+					<a href="contact.html" class="txt19">ติดต่อ</a>
+				</li>
+	
+				<li class="t-center">
+					<!-- Button3 -->
+					<a href="index.html" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
+						หน้าหลัก
+					</a>
+				</li>
+			</ul>
+		</aside>
+
+	<!-- Slide1 -->
+	<section class="section-slide">
+		<div class="wrap-slick1">
+			<div class="slick1">
+				<div class="item-slick1 item1-slick1" style="background-image: url(images/main-slide1.jpg);">
+				</div>
+
+				<div class="item-slick1 item2-slick1" style="background-image: url(images/main-slide2.jpg);">
+				</div>
+
+				<div class="item-slick1 item3-slick1" style="background-image: url(images/main-slide3.jpg);">
+				</div>
+
+			</div>
+
+			<div class="wrap-slick1-dots"></div>
+		</div>
+	</section>
+
+	<!-- Welcome -->
+	<section class="section-welcome bg1-pattern p-t-120 p-b-105">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 p-t-45 p-b-30">
+					<div class="wrap-text-welcome t-center">
+						<span class="tit2 t-center">
+							เกี่ยวกับ
+						</span>
+
+						<h3 class="tit3 t-center m-b-35 m-t-5">
+							หลักสูตรคณิตศาสตร์ประยุกต์
+						</h3>
+
+						<p class="t-center m-b-22 size3 m-l-r-auto">
+							หลักสูตรคณิตศาสตร์ประยุกต์ ที่ดูแลรับผิดชอบโดย สาขาวิชาคณิตศาสตร์ มีวัตถุประสงค์เพื่อผลิตนักวิทยาศาสตร์สาขาคณิตศาสตร์ประยุกต์
+							ให้มีความรู้ความสามารถที่จะนำเอาวิชาคณิตศาสตร์ไปประยุกต์ใช้ร่วม กับงานในสาขาต่าง ๆ เช่นวิศวกรรม อุตสาหกรรม พาณิชยกรรม
+							โดยมีวิชาการด้านคอมพิวเตอร์ช่วยเสริม และเพื่อส่งเสริมและสนับสนุนให้มีการศึกษาคณิตศาสตร์ ในระดับที่สูงกว่าปริญญาตรีรวมทั้งการค้นคว้า
+							และวิจัยทางด้านคณิตศาสตร์ประยุกต์และคณิตศาสตร์บริสุทธิ์
+						</p>
+
+						<a href="about.html" class="txt4">
+							เกี่ยวกับภาควิชา
+							<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="col-md-6 p-b-30">
+					<div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+						<img src="images/about-01.JPG" alt="IMG-OUR">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Intro -->
+	<section class="section-intro">
+		<div class="header-intro parallax100 t-center p-t-135 p-b-158" style="background-image: url(images/cover-01.JPG);">
+			<span class="tit2 p-l-15 p-r-15" style="color: white;">
+				กิจกรรมต่างๆ
+			</span>
+
+			<h3 class="tit4 t-center p-l-15 p-r-15 p-t-3">
+				ของภาควิชาคณิตศาสตร์
+			</h3>
+		</div>
+	</section>
+	<!-- Our menu -->
+	<section class="section-ourmenu bg2-pattern p-t-115 p-b-120">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col-sm-6">
+							<!-- Item our menu -->
+							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+								<img src="images/6/2.JPG" alt="IMG-MENU">
+
+								<!-- Button2 -->
+								<div class="overlay-item-gallery trans-0-4 flex-c-m">
+									<a class="btn-show-gallery flex-c-m fa fa-search" href="images/6/2.JPG" data-lightbox="gallery"></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<!-- Item our menu -->
+							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+								<img src="images/6/3.JPG" alt="IMG-MENU">
+
+								<!-- Button2 -->
+								<div class="overlay-item-gallery trans-0-4 flex-c-m">
+									<a class="btn-show-gallery flex-c-m fa fa-search" href="images/6/3.JPG" data-lightbox="gallery"></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12">
+							<!-- Item our menu -->
+							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+								<img src="images/6/4.JPG" alt="IMG-MENU">
+
+								<!-- Button2 -->
+								<div class="overlay-item-gallery trans-0-4 flex-c-m">
+									<a class="btn-show-gallery flex-c-m fa fa-search" href="images/6/4.JPG" data-lightbox="gallery"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-12">
+							<!-- Item our menu -->
+							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+								<img src="images/6/1.JPG" alt="IMG-MENU">
+
+								<!-- Button2 -->
+								<div class="overlay-item-gallery trans-0-4 flex-c-m">
+									<a class="btn-show-gallery flex-c-m fa fa-search" href="images/6/1.JPG" data-lightbox="gallery"></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12">
+							<!-- Item our menu -->
+							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+								<img src="images/6/5.JPG" alt="IMG-MENU">
+
+								<!-- Button2 -->
+								<div class="overlay-item-gallery trans-0-4 flex-c-m">
+									<a class="btn-show-gallery flex-c-m fa fa-search" href="images/6/5.JPG" data-lightbox="gallery"></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12">
+							<!-- Item our menu -->
+							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+								<img src="images/6/6.JPG" alt="IMG-MENU">
+
+								<!-- Button2 -->
+								<div class="overlay-item-gallery trans-0-4 flex-c-m">
+									<a class="btn-show-gallery flex-c-m fa fa-search" href="images/6/6.JPG" data-lightbox="gallery"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+
+
+	<!-- Video -->
+	<section class="section-video parallax100" style="background-image: url(images/video-01.JPG);">
+		<div class="content-video t-center p-t-225 p-b-250">
+			<span class="tit2 p-l-15 p-r-15" style="color: rgba(243,156,18,0.8);">
+				วีดีโอ
+			</span>
+
+			<h3 class="tit4 t-center p-l-15 p-r-15 p-t-3">
+				แนะนำภาควิชา
+			</h3>
+
+			<div class="btn-play ab-center size16 hov-pointer m-l-r-auto m-t-43 m-b-33" data-toggle="modal" data-target="#modal-video-01">
+				<div class="flex-c-m sizefull bo-cir bgwhite color1 hov1 trans-0-4">
+					<i class="fa fa-play fs-18 m-l-2" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Event -->
+	<section class="section-ourmenu bg2-pattern p-t-115 p-b-120">
+		<div class="container">
+			<div class="title-section-ourmenu t-center m-b-22">
+				<span class="tit2 t-center">
+					กิจกรรม
+				</span>
+
+				<h3 class="tit5 t-center m-t-2">
+					ที่กำลังใกล้เข้ามา
+				</h3>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-sm-6">
+							<!-- Item our menu -->
+							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+								<img src="images/event/event-01.gif" alt="IMG-MENU">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-12">
+									<!-- Item our menu -->
+									<a href="http://www.math.sc.su.ac.th/uamc2018/">
+										<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+											<img src="images/event/event-02.gif" alt="IMG-MENU">
+
+											<!-- Button2 -->
+
+										</div>
+									</a>
+								</div>
+
+								<div class="col-12">
+									<!-- Item our menu -->
+									<a href="http://amm2018.kmutt.ac.th/">
+										<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+											<img src="images/event/event-03.gif" alt="IMG-MENU">
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg1">
+		<div class="end-footer bg2">
+			<div class="container">
+				<div class="flex-sb-m flex-w p-t-22 p-b-22">
+					<div class="txt17 p-r-20 p-t-5 p-b-5">
+						Copyright (C) 2018 ,
+						<BR>King Mongkut's Institute of Technology Ladkrabang (KMITL)
+						<BR>Contact Webmaster of Department of Mathematics
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+	</div>
+
+	<!-- Container Selection1 -->
+	<div id="dropDownSelect1"></div>
+
+	<!-- Modal Video 01-->
+	<div class="modal fade" id="modal-video-01" tabindex="-1" role="dialog" aria-hidden="true">
+
+		<div class="modal-dialog" role="document" data-dismiss="modal">
+			<div class="close-mo-video-01 trans-0-4" data-dismiss="modal" aria-label="Close">&times;</div>
+
+			<div class="wrap-video-mo-01">
+				<div class="w-full wrap-pic-w op-0-0">
+					<img src="images/icons/video-16-9.jpg" alt="IMG">
+				</div>
+				<div class="video-mo-01">
+					<iframe src="https://www.youtube.com/embed/oU1Bb9aMlEI?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
+	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/daterangepicker/moment.min.js"></script>
+	<script type="text/javascript" src="vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+	<script type="text/javascript" src="js/slick-custom.js"></script>
+	<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/parallax100/parallax100.js"></script>
+	<script type="text/javascript">
+		$('.parallax100').parallax100();
+		if (localStorage.getItem('uid')) {
+			document.getElementById('login-box').innerText = แก้ไขข้อมูล;
+		} else {
+			document.getElementById('login-box').innerText = เข้าสู่ระบบ;
+		}
+	</script>
+	<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/lightbox2/js/lightbox.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+
+
 </html>
