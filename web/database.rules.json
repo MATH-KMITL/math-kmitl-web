@@ -1,0 +1,19 @@
+{
+  "rules": {
+    ".read":true,
+    "teacher":{ 
+      "$uid":{
+    		".write": "(auth !== null && auth.uid === data.child('uid').val())||(auth !== null && 'staff' === data.child('status').val())"
+    }, ".write": "(auth !== null) && 'staff' === data.child('user26/status').val()"
+      },
+        "student":{
+      ".write": "auth != null"
+    },
+      "max_year":{
+        ".write": "auth != null"
+      },
+      "president":{
+        ".write": "auth != null"
+      }
+    }
+}
