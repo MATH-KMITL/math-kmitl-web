@@ -34,6 +34,11 @@
     <link href="css/menu.css" rel="stylesheet">
     <script src="js/sweatalert.min.js"></script>
 
+    <!--============================================== gallery =================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+    <link rel="stylesheet" type="text/css" href="css/event-add-img.css">
+    <!--===============================================================================================-->
+
 </head>
 
 <body>
@@ -57,7 +62,9 @@
                 </div>
 
                 <ul class="list-unstyled components" id="menu-admin">
-                    <!-- <li>
+
+                    <!--             
+                <li>
                     <a href="admin.html">
                         <i class="ti-user"></i>
                         User Profile
@@ -69,10 +76,16 @@
                         Staff Management
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="std-manage.html">
                         <i class="ti-id-badge" aria-hidden="true"></i>
                         Student Management
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="event-manage.html">
+                        <i class="ti-id-badge" aria-hidden="true"></i>
+                        Event Management
                     </a>
                 </li>
                 <li>
@@ -86,7 +99,8 @@
                         <i class="ti-new-window"></i>
                         Sign Out
                     </a>
-                </li> -->
+                </li> 
+                -->
 
                 </ul>
             </div>
@@ -97,7 +111,7 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" style="font-size: 16px" href="#">Student Management</a>
+                        <a class="navbar-brand" style="font-size: 16px" href="#">Event Management</a>
                     </div>
                     <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn is-active">
                         <i class="ti-align-left"></i>
@@ -114,69 +128,50 @@
 
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">แก้ไขข้อมูลนักศึกษา</h4>
+                                    <h4 class="title">เพิ่มรูปภาพกิจกรรม</h4>
                                 </div>
                                 <div class="content">
                                     <form>
 
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>รหัสนักศึกษา</label>
-                                                    <input type="text" id="std_id" class="form-control border-input" placeholder="รหัสนักศึกษา">
-                                                </div>
-                                            </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>ชั้นปี</label>
-                                                    <select class="form-control border-input" id="std_year" class="form-control">
-                                                        <option selected>กรุณาเลือกชั้นปี</option>
-                                                        <option value="year60">ปี 1</option>
-                                                        <option value="year59">ปี 2</option>
-                                                        <option value="year58">ปี 3</option>
-                                                        <option value="year57">ปี 4</option>
+                                                    <label>กิจกรรม</label>
+                                                    <select class="form-control border-input" id="event" class="form-control">
+                                                        <option value="dont-select" text="กรุณาเลือกกิจกรรม" selected>กรุณาเลือกกิจกรรม</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-3">
+                                            <div class="col-md-3" id="text-add-event" hidden>
                                                 <div class="form-group">
-                                                    <label>คำนำหน้าชื่อ</label>
-                                                    <select class="form-control border-input" id="std_title" class="form-control">
-                                                        <option selected>กรุณาเลือกคำนำหน้า</option>
-                                                        <option>นางสาว</option>
-                                                        <option>นาย</option>
-                                                    </select>
+                                                    <label>กิจกรรม</label>
+                                                    <input type="text" id="event-name" class="form-control border-input" placeholder="ชื่อกิจกรรม">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-2">
                                                 <div class="form-group">
-                                                    <label>ชื่อ</label>
-                                                    <input type="text" id="std_name" class="form-control border-input" placeholder="ชื่อ">
+                                                    <span class="btn btn-warning" onclick="chageName()">
+                                                        เปลี่ยนชื่อกิจกรรม
+                                                    </span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md">
                                                 <div class="form-group">
-                                                    <label>นามสกุล</label>
-                                                    <input type="text" id="std_sur" class="form-control border-input" placeholder="นามสกุล">
+                                                    <span class="btn btn-del" onclick="deleteEvent()">
+                                                        ลบกิจกรรม
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" id='img-zone' hidden>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">รูปภาพโปรไฟล์ (แนะนำให้รูปเป็นจัตุรัสและนามสกุลไฟล์เป็น .jpg ตัวเล็กเท่านั้น)</label>
-                                                    <input type="file" id="profile_pic" class="form-control border-input" placeholder="รูปภาพ">
+                                                    <label> รูปภาพ (ตัวอย่าง) </label>
+                                                    <div type="file" id="img-upload-zone" class="wrap-gallery flex-w p-l-25 p-r-25"></div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="text-center">
-                                            <a href="#" onclick="createAccount()">
-                                                <div class="btn btn-info btn-fill btn-wd">Update Student</div>
-                                                <a>
                                         </div>
                                         <div class="clearfix"></div>
                                     </form>
@@ -280,10 +275,10 @@
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-storage.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
-<script src="js/edit-std.js"></script>
+<script src="js/event-edit.js"></script>
 
 <!-- add menu -->
 <script src="js/add-admin-menu.js"></script>
-<script type="text/javascript"> createMenu('Student Management') </script>
+<script type="text/javascript"> createMenu('Event Management') </script>
 
 </html>

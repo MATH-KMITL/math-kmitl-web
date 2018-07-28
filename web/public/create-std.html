@@ -31,6 +31,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="css/themify-icons.css" rel="stylesheet">
+    <link href="css/menu.css" rel="stylesheet">
     <script src="js/sweatalert.min.js"></script>
 
 </head>
@@ -41,21 +42,22 @@
     <div class="wrapper">
 
         <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>
-                    <a href="index.html">MATH KMITL
-                        <img src="images/icons/favicon.png">
-                    </a>
-                </h3>
-                <strong>
-                    <a href="index.html">
-                        <img src="images/icons/favicon.png">
-                    </a>
-                </strong>
-            </div>
+            <div id="scroll">
+                <div class="sidebar-header">
+                    <h3>
+                        <a href="index.html">MATH KMITL
+                            <img src="images/icons/favicon.png">
+                        </a>
+                    </h3>
+                    <strong>
+                        <a href="index.html">
+                            <img src="images/icons/favicon.png">
+                        </a>
+                    </strong>
+                </div>
 
-            <ul class="list-unstyled components">
-                <li>
+                <ul class="list-unstyled components" id="menu-admin">
+                    <!-- <li>
                     <a href="admin.html">
                         <i class="ti-user"></i>
                         User Profile
@@ -85,9 +87,11 @@
                         <i class="ti-new-window"></i>
                         Sign Out
                     </a>
-                </li>
+                </li> -->
 
-            </ul>
+                </ul>
+            </div>
+
         </nav>
 
         <div class="main-panel">
@@ -141,10 +145,10 @@
                                                 <div class="form-group">
                                                     <label>คำนำหน้าชื่อ</label>
                                                     <select class="form-control border-input" id="std_title" class="form-control">
-                                                            <option selected>กรุณาเลือกคำนำหน้า</option>
-                                                            <option>นางสาว</option>
-                                                            <option>นาย</option>
-                                                        </select>
+                                                        <option selected>กรุณาเลือกคำนำหน้า</option>
+                                                        <option>นางสาว</option>
+                                                        <option>นาย</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -163,13 +167,13 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label for="exampleInputEmail1">รูปภาพโปรไฟล์ (แนะนำให้รูปเป็นจัตุรัสและนามสกุลไฟล์เป็น .jpg ตัวเล็กเท่านั้น)</label>
-                                                        <input type="file" id="profile_pic" class="form-control border-input" placeholder="รูปภาพ">
-                                                    </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">รูปภาพโปรไฟล์ (แนะนำให้รูปเป็นจัตุรัสและนามสกุลไฟล์เป็น .jpg ตัวเล็กเท่านั้น)</label>
+                                                    <input type="file" id="profile_pic" class="form-control border-input" placeholder="รูปภาพ">
                                                 </div>
                                             </div>
+                                        </div>
                                         <div class="text-center">
                                             <a href="#" onclick="createAccount()">
                                                 <div class="btn btn-info btn-fill btn-wd">Add Student</div>
@@ -279,5 +283,8 @@
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
 <script src="js/create-std.js"></script>
 
+<!-- add menu -->
+<script src="js/add-admin-menu.js"></script>
+<script type="text/javascript"> createMenu('Student Management') </script>
 
 </html>

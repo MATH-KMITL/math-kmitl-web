@@ -37,6 +37,10 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
     <script src="js/sweatalert.min.js"></script>
     <link href="css/menu.css" rel="stylesheet">
+    <!--============================================== gallery =================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+    <link rel="stylesheet" type="text/css" href="css/event-manage.css">
+    <!--===============================================================================================-->
 </head>
 <div class="wrapper">
 
@@ -56,7 +60,9 @@
             </div>
 
             <ul class="list-unstyled components" id="menu-admin">
-                <!-- <li>
+
+                <!--             
+            <li>
                 <a href="admin.html">
                     <i class="ti-user"></i>
                     User Profile
@@ -74,16 +80,10 @@
                     Student Management
                 </a>
             </li>
-            <li >
-                <a href="events-comings.html">
-                    <i class="ti-image" aria-hidden="true"></i>
-                    Events Comings
-                </a>
-            </li>
             <li class="active">
-                <a href="events-other.html">
-                    <i class="ti-gallery" aria-hidden="true"></i>
-                    Events Other
+                <a href="event-manage.html">
+                    <i class="ti-id-badge" aria-hidden="true"></i>
+                    Event Management
                 </a>
             </li>
             <li>
@@ -97,7 +97,8 @@
                     <i class="ti-new-window"></i>
                     Sign Out
                 </a>
-            </li> -->
+            </li> 
+            -->
 
             </ul>
         </div>
@@ -108,7 +109,7 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" style="font-size: 14px;" href="#">Events Other</a>
+                    <a class="navbar-brand" style="font-size: 14px;" href="#">Event Management</a>
                 </div>
                 <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn is-active">
                     <i class="ti-align-left"></i>
@@ -124,98 +125,36 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header" style="margin-bottom: 1%">
-                                <h4 class="title">จัดการกิจกรรมต่างๆของภาควิชาคณิตศาสตร์</h4>
+                                <h4 class="title">จัดการนักศึกษา</h4>
                             </div>
+                            <div class="card-body">
+                                <a href="event-add-img.html" class="btn btn-success"> เพิ่มรูปภาพ </a>
+                                <a href="event-edit.html" class="btn btn-warning"> แก้ไขชื่อกิจกรรม </a>
+                            </div>
+                        </div>
+                        <div class="card card-tab">
+                            <div class="header">
+                                <h4 class="title">รูปกิจกรรม</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="table wow table-hover" id="imgEvent-table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">รูป</th>
+                                                    <th scope="col">กิจกรรม</th>
+                                                    <th scope="col">ชื่อภาพ</th>
+                                                    <th scope="col">ลบ</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
 
-                            <div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">รูปภาพกิจกรรมที่ 1 (แนะนำให้นามสกุลรูปเป็น .jpg, .png เท่านั้น)</label>
-                                                <div class="card-body">
-                                                    <span>
-                                                        <input type="file" id="img1" class="form-control border-input" accept="image/jpg, image/png">
-                                                    </span>
-                                                    <span class="btn btn-success btn-file " id="upload button1" hidden onclick="uploadImg1()">อัปโหลด</span>
-                                                    <span class="btn btn-warning btn-file" id="input button img1" hidden onclick="inputImg1()">ยกเลิก</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">รูปภาพกิจกรรมที่ 2 (แนะนำให้นามสกุลรูปเป็น .jpg, .png เท่านั้น)</label>
-                                                <div class="card-body">
-                                                    <span>
-                                                        <input type="file" id="img2" class="form-control border-input" accept="image/jpg, image/png">
-                                                    </span>
-                                                    <span class="btn btn-success btn-file " id="upload button2" hidden onclick="uploadImg2()">อัปโหลด</span>
-                                                    <span class="btn btn-warning btn-file" id="input button img2" hidden onclick="inputImg2()">ยกเลิก</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">รูปภาพกิจกรรมที่ 3 (แนะนำให้นามสกุลรูปเป็น .jpg, .png เท่านั้น)</label>
-                                                <div class="card-body">
-                                                    <span>
-                                                        <input type="file" id="img3" class="form-control border-input" accept="image/jpg, image/png">
-                                                    </span>
-                                                    <span class="btn btn-success btn-file " id="upload button3" hidden onclick="uploadImg3()">อัปโหลด</span>
-                                                    <span class="btn btn-warning btn-file" id="input button img3" hidden onclick="inputImg3()">ยกเลิก</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">รูปภาพกิจกรรมที่ 4 (แนะนำให้นามสกุลรูปเป็น .jpg, .png เท่านั้น)</label>
-                                                <div class="card-body">
-                                                    <span>
-                                                        <input type="file" id="img4" class="form-control border-input" accept="image/jpg, image/png">
-                                                    </span>
-                                                    <span class="btn btn-success btn-file " id="upload button4" hidden onclick="uploadImg4()">อัปโหลด</span>
-                                                    <span class="btn btn-warning btn-file" id="input button img4" hidden onclick="inputImg4()">ยกเลิก</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">รูปภาพกิจกรรมที่ 5 (แนะนำให้นามสกุลรูปเป็น .jpg, .png เท่านั้น)</label>
-                                                <div class="card-body">
-                                                    <span>
-                                                        <input type="file" id="img5" class="form-control border-input" accept="image/jpg, image/png">
-                                                    </span>
-                                                    <span class="btn btn-success btn-file " id="upload button5" hidden onclick="uploadImg5()">อัปโหลด</span>
-                                                    <span class="btn btn-warning btn-file" id="input button img5" hidden onclick="inputImg5()">ยกเลิก</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">รูปภาพกิจกรรมที่ 6 (แนะนำให้นามสกุลรูปเป็น .jpg, .png เท่านั้น)</label>
-                                                <div class="card-body">
-                                                    <span>
-                                                        <input type="file" id="img6" class="form-control border-input" accept="image/jpg, image/png">
-                                                    </span>
-                                                    <span class="btn btn-success btn-file " id="upload button6" hidden onclick="uploadImg6()">อัปโหลด</span>
-                                                    <span class="btn btn-warning btn-file" id="input button img6" hidden onclick="inputImg6()">ยกเลิก</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
-
                         </div>
                         <br>
                     </div>
@@ -315,13 +254,11 @@
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-storage.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
-<!-- Excell lib -->
-<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
 
-<script src="js/events-other.js"></script>
+<script src="js/event-manage.js"></script>
 
 <!-- add menu -->
 <script src="js/add-admin-menu.js"></script>
-<script type="text/javascript"> createMenu('Events Other') </script>
+<script type="text/javascript"> createMenu('Event Management') </script>
 
 </html>
