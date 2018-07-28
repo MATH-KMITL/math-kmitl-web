@@ -31,6 +31,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="css/themify-icons.css" rel="stylesheet">
+    <link href="css/menu.css" rel="stylesheet">
     <script src="js/sweatalert.min.js"></script>
 
 </head>
@@ -40,21 +41,22 @@
     <div class="wrapper">
 
         <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>
-                    <a href="index.html">MATH KMITL
-                        <img src="images/icons/favicon.png">
-                    </a>
-                </h3>
-                <strong>
-                    <a href="index.html">
-                        <img src="images/icons/favicon.png">
-                    </a>
-                </strong>
-            </div>
+            <div id="scroll">
+                <div class="sidebar-header">
+                    <h3>
+                        <a href="index.html">MATH KMITL
+                            <img src="images/icons/favicon.png">
+                        </a>
+                    </h3>
+                    <strong>
+                        <a href="index.html">
+                            <img src="images/icons/favicon.png">
+                        </a>
+                    </strong>
+                </div>
 
-            <ul class="list-unstyled components">
-                <li class="active">
+                <ul class="list-unstyled components" id="menu-admin">
+                    <!-- <li class="active">
                     <a href="#">
                         <i class="ti-user"></i>
                         User Profile
@@ -96,10 +98,13 @@
                         <i class="ti-new-window"></i>
                         Sign Out
                     </a>
-                </li>
+                </li> -->
 
-            </ul>
+                </ul>
+            </div>
         </nav>
+
+
 
         <div class="main-panel">
             <nav class="navbar navbar-default">
@@ -331,5 +336,8 @@
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
 <script src="js/admin.js"></script>
 
+<!-- add menu -->
+<script src="js/add-admin-menu.js"></script>
+<script type="text/javascript"> createMenu('User Profile') </script>
 
 </html>

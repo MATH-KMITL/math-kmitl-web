@@ -36,25 +36,27 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
     <script src="js/sweatalert.min.js"></script>
+    <link href="css/menu.css" rel="stylesheet">
 </head>
 <div class="wrapper">
 
     <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>
-                <a href="index.html">MATH KMITL
-                    <img src="images/icons/favicon.png">
-                </a>
-            </h3>
-            <strong>
-                <a href="index.html">
-                    <img src="images/icons/favicon.png">
-                </a>
-            </strong>
-        </div>
+        <div id="scroll">
+            <div class="sidebar-header">
+                <h3>
+                    <a href="index.html">MATH KMITL
+                        <img src="images/icons/favicon.png">
+                    </a>
+                </h3>
+                <strong>
+                    <a href="index.html">
+                        <img src="images/icons/favicon.png">
+                    </a>
+                </strong>
+            </div>
 
-        <ul class="list-unstyled components">
-            <li>
+            <ul class="list-unstyled components" id="menu-admin">
+                <!-- <li>
                 <a href="admin.html">
                     <i class="ti-user"></i>
                     User Profile
@@ -95,9 +97,11 @@
                     <i class="ti-new-window"></i>
                     Sign Out
                 </a>
-            </li>
+            </li> -->
 
-        </ul>
+            </ul>
+        </div>
+
     </nav>
 
     <div class="main-panel">
@@ -288,5 +292,8 @@
 
 <script src="js/events-comings.js"></script>
 
+<!-- add menu -->
+<script src="js/add-admin-menu.js"></script>
+<script type="text/javascript"> createMenu('Events Comings') </script>
 
 </html>
