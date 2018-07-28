@@ -1,4 +1,3 @@
-
 (function ($) {
     "use strict";
 
@@ -17,27 +16,27 @@
         timeout: false,
         timeoutCountdown: 5000,
         onLoadEvent: true,
-        browser: [ 'animation-duration', '-webkit-animation-duration'],
-        overlay : false,
-        overlayClass : 'animsition-overlay-slide',
-        overlayParentElement : 'html',
-        transition: function(url){ window.location.href = url; }
+        browser: ['animation-duration', '-webkit-animation-duration'],
+        overlay: false,
+        overlayClass: 'animsition-overlay-slide',
+        overlayParentElement: 'html',
+        transition: function (url) { window.location.href = url; }
     });
-    
+
     /*[ Back to top ]
     ===========================================================*/
-    var windowH = $(window).height()/2;
+    var windowH = $(window).height() / 2;
 
-    $(window).on('scroll',function(){
+    $(window).on('scroll', function () {
         if ($(this).scrollTop() > windowH) {
-            $("#myBtn").css('display','flex');
+            $("#myBtn").css('display', 'flex');
         } else {
-            $("#myBtn").css('display','none');
+            $("#myBtn").css('display', 'none');
         }
     });
 
-    $('#myBtn').on("click", function(){
-        $('html, body').animate({scrollTop: 0}, 300);
+    $('#myBtn').on("click", function () {
+        $('html, body').animate({ scrollTop: 0 }, 300);
     });
 
 
@@ -61,31 +60,31 @@
     var myCalendar = $('.my-calendar');
     var isClick = 0;
 
-    $(window).on('click',function(){ 
+    $(window).on('click', function () {
         isClick = 0;
     });
 
-    $(myCalendar).on('apply.daterangepicker',function(){ 
+    $(myCalendar).on('apply.daterangepicker', function () {
         isClick = 0;
     });
 
-    $('.btn-calendar').on('click',function(e){ 
+    $('.btn-calendar').on('click', function (e) {
         e.stopPropagation();
 
-        if(isClick == 1) isClick = 0;   
-        else if(isClick == 0) isClick = 1;
+        if (isClick == 1) isClick = 0;
+        else if (isClick == 0) isClick = 1;
 
         if (isClick == 1) {
             myCalendar.focus();
         }
     });
 
-    $(myCalendar).on('click',function(e){ 
+    $(myCalendar).on('click', function (e) {
         e.stopPropagation();
         isClick = 1;
     });
 
-    $('.daterangepicker').on('click',function(e){ 
+    $('.daterangepicker').on('click', function (e) {
         e.stopPropagation();
     });
 
@@ -94,19 +93,19 @@
     ===========================================================*/
     var srcOld = $('.video-mo-01').children('iframe').attr('src');
 
-    $('[data-target="#modal-video-01"]').on('click',function(){
+    $('[data-target="#modal-video-01"]').on('click', function () {
         $('.video-mo-01').children('iframe')[0].src += "&autoplay=1";
 
-        setTimeout(function(){
-            $('.video-mo-01').css('opacity','1');
-        },300);      
+        setTimeout(function () {
+            $('.video-mo-01').css('opacity', '1');
+        }, 300);
     });
 
-    $('[data-dismiss="modal"]').on('click',function(){
+    $('[data-dismiss="modal"]').on('click', function () {
         $('.video-mo-01').children('iframe')[0].src = srcOld;
-        $('.video-mo-01').css('opacity','0');
+        $('.video-mo-01').css('opacity', '0');
     });
-    
+
 
     /*[ Fixed Header ]
     ===========================================================*/
@@ -116,16 +115,16 @@
     var linkLogo2 = $(logo).data('logofixed');
 
 
-    $(window).on('scroll',function(){
-        if($(this).scrollTop() > 5 && $(this).width() > 992) {
-            $(logo).attr('src',linkLogo2);
+    $(window).on('scroll', function () {
+        if ($(this).scrollTop() > 5 && $(this).width() > 992) {
+            $(logo).attr('src', linkLogo2);
             $(header).addClass('header-fixed');
         }
         else {
             $(header).removeClass('header-fixed');
-            $(logo).attr('src',linkLogo1);
+            $(logo).attr('src', linkLogo1);
         }
-        
+
     });
 
     /*[ Show/hide sidebar ]
@@ -136,17 +135,17 @@
     var btnHideSidebar = $('.btn-hide-sidebar');
     var sidebar = $('.sidebar');
 
-    $(btnShowSidebar).on('click', function(){
+    $(btnShowSidebar).on('click', function () {
         $(sidebar).addClass('show-sidebar');
         $(ovlSideBar).addClass('show-overlay-sidebar');
     })
 
-    $(btnHideSidebar).on('click', function(){
+    $(btnHideSidebar).on('click', function () {
         $(sidebar).removeClass('show-sidebar');
         $(ovlSideBar).removeClass('show-overlay-sidebar');
     })
 
-    $(ovlSideBar).on('click', function(){
+    $(ovlSideBar).on('click', function () {
         $(sidebar).removeClass('show-sidebar');
         $(ovlSideBar).removeClass('show-overlay-sidebar');
     })
@@ -161,9 +160,9 @@
     $filter.each(function () {
         $filter.on('click', 'button', function () {
             var filterValue = $(this).attr('data-filter');
-            $topeContainer.isotope({filter: filterValue});
+            $topeContainer.isotope({ filter: filterValue });
         });
-        
+
     });
 
     // init Isotope
@@ -172,7 +171,7 @@
             $(this).isotope({
                 itemSelector: '.isotope-item',
                 percentPosition: true,
-                animationEngine : 'best-available',
+                animationEngine: 'best-available',
                 masonry: {
                     columnWidth: '.isotope-item'
                 }
@@ -182,9 +181,9 @@
 
     var labelGallerys = $('.label-gallery');
 
-    $(labelGallerys).each(function(){
-        $(this).on('click', function(){
-            for(var i=0; i<labelGallerys.length; i++) {
+    $(labelGallerys).each(function () {
+        $(this).on('click', function () {
+            for (var i = 0; i < labelGallerys.length; i++) {
                 $(labelGallerys[i]).removeClass('is-actived');
             }
 
@@ -197,32 +196,32 @@
     [ Validate ]*/
     var input = $('.validate-input .input100');
 
-    $('.validate-form').on('submit',function(){
+    $('.validate-form').on('submit', function () {
         var check = true;
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
+        for (var i = 0; i < input.length; i++) {
+            if (validate(input[i]) == false) {
                 showValidate(input[i]);
-                check=false;
+                check = false;
             }
         }
         return check;
     });
 
 
-    $('.validate-form .input100').each(function(){
-        $(this).focus(function(){
-           hideValidate(this);
+    $('.validate-form .input100').each(function () {
+        $(this).focus(function () {
+            hideValidate(this);
         });
     });
 
-    function validate (input) {
-        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+    function validate(input) {
+        if ($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+            if ($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
                 return false;
             }
         }
         else {
-            if($(input).val().trim() == ''){
+            if ($(input).val().trim() == '') {
                 return false;
             }
         }
@@ -236,9 +235,9 @@
 
     function hideValidate(input) {
         var thisAlert = $(input).parent();
-        
+
         $(thisAlert).removeClass('alert-validate');
     }
-    
+
 
 })(jQuery);

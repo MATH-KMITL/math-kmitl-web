@@ -41,147 +41,159 @@
 
 
 
-    <div class="wrapper">
+<div class="wrapper">
 
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>
-                    <a href="index.html">MATH KMITL
-                        <img src="images/icons/favicon.png">
-                    </a>
-                </h3>
-                <strong>
-                    <a href="index.html">
-                        <img src="images/icons/favicon.png">
-                    </a>
-                </strong>
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>
+                <a href="index.html">MATH KMITL
+                    <img src="images/icons/favicon.png">
+                </a>
+            </h3>
+            <strong>
+                <a href="index.html">
+                    <img src="images/icons/favicon.png">
+                </a>
+            </strong>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li>
+                <a href="admin.html">
+                    <i class="ti-user"></i>
+                    User Profile
+                </a>
+            </li>
+            <li class="active">
+                <a href="manage.html">
+                    <i class="ti-list" aria-hidden="true"></i>
+                    Staff Management
+                </a>
+            </li>
+            <li>
+                <a href="std-manage.html">
+                    <i class="ti-id-badge" aria-hidden="true"></i>
+                    Student Management
+                </a>
+            </li>
+            <li>
+                <a href="events-comings.html">
+                    <i class="ti-image" aria-hidden="true"></i>
+                    Events Comings
+                </a>
+            </li>
+            <li>
+                <a href="events-other.html">
+                    <i class="ti-gallery" aria-hidden="true"></i>
+                    Events Other
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="resetPassword()">
+                    <i class="ti-settings"></i>
+                    Reset Password
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="signOut()">
+                    <i class="ti-new-window"></i>
+                    Sign Out
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" style="font-size: 16px;" href="#">Staff Management</a>
+                </div>
+                <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn is-active">
+                    <i class="ti-align-left"></i>
+                    <span>Menu</span>
+                </button>
             </div>
-
-            <ul class="list-unstyled components">
-                <li>
-                    <a href="admin.html">
-                        <i class="ti-user"></i>
-                        User Profile
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="manage.html">
-                        <i class="ti-list" aria-hidden="true"></i>
-                        Staff Management
-                    </a>
-                </li>
-                <li>
-                    <a href="std-manage.html">
-                        <i class="ti-id-badge" aria-hidden="true"></i>
-                        Student Management
-                    </a>
-                </li>
-                <li>
-                    <a href="#" onclick="resetPassword()">
-                        <i class="ti-settings"></i>
-                        Reset Password
-                    </a>
-                </li>
-                <li>
-                    <a href="#" onclick="signOut()">
-                        <i class="ti-new-window"></i>
-                        Sign Out
-                    </a>
-                </li>
-
-            </ul>
         </nav>
 
-        <div class="main-panel">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" style="font-size: 16px;" href="#">Staff Management</a>
-                    </div>
-                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn is-active">
-                        <i class="ti-align-left"></i>
-                        <span>Menu</span>
-                    </button>
-                </div>
-            </nav>
 
-
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="row justify-content-center">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="header" style="margin-bottom: 1%">
-                                    <h4 class="title">จัดการบัญชี</h4>
-                                </div>
-                                <div class="card-body">
-                                    <a href="create.html" class="btn btn-success">+ เพิ่มบัญชี</a>
-                                    <a href="president-manage.html" class="btn btn-success">
-                                            จัดการหัวหน้าภาค
-                                    </a>
-                                </div>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header" style="margin-bottom: 1%">
+                                <h4 class="title">จัดการบัญชี</h4>
                             </div>
-                            <div class="card card-tab">
-                                <div class="header">
-                                    <h4 class="title">รายชื่อบุคลากร</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <table class="table wow table-hover" id="teacher-table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">ชื่อ</th>
-                                                        <th scope="col">นามสกุล</th>
-                                                        <th scope="col">อีเมล</th>
-                                                        <th scope="col">UID</th>
-                                                        <th scope="col">ลบ</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody  >
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                </div>
+                            <div class="card-body">
+                                <a href="create.html" class="btn btn-success">+ เพิ่มบัญชี</a>
+                                <a href="president-manage.html" class="btn btn-success">
+                                    จัดการหัวหน้าภาค
+                                </a>
                             </div>
-                            <br>
                         </div>
+                        <div class="card card-tab">
+                            <div class="header">
+                                <h4 class="title">รายชื่อบุคลากร</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="table wow table-hover" id="teacher-table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">ชื่อ</th>
+                                                    <th scope="col">นามสกุล</th>
+                                                    <th scope="col">อีเมล</th>
+                                                    <th scope="col">UID</th>
+                                                    <th scope="col">ลบ</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <br>
                     </div>
                 </div>
             </div>
-            <footer style="margin-bottom: 2%; color: black;">
-                <div class="container-fluid">
-                    <div class="copyright pull-right">
-                        Copyright (C) 2018 ,
-                        <BR>King Mongkut's Institute of Technology Ladkrabang (KMITL)
-                        <BR>Contact Webmaster of Department of Mathematics
-                    </div>
+        </div>
+        <footer style="margin-bottom: 2%; color: black;">
+            <div class="container-fluid">
+                <div class="copyright pull-right">
+                    Copyright (C) 2018 ,
+                    <BR>King Mongkut's Institute of Technology Ladkrabang (KMITL)
+                    <BR>Contact Webmaster of Department of Mathematics
                 </div>
-            </footer>
+            </div>
+        </footer>
 
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
         </div>
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  ...
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-            </div>
-          </div>
+</div>
 
 
 
