@@ -162,7 +162,7 @@
 			เลือกตามปีการศึกษา
 		</span>
 	</div>
-	<div class="wrap-label-gallery filter-tope-group t-center p-t-40 m-b-60">
+	<div class="wrap-label-gallery t-center p-t-40 m-b-60">
 		<p>
 			<button class="btn btn-all" style="margin-bottom: 10px; background-color: f39c12;" type="button" data-toggle="collapse" data-target="#collapseExample"
 			 aria-expanded="false" aria-controls="collapseExample">
@@ -172,8 +172,8 @@
 
 		</p>
 		<div class="collapse" id="collapseExample">
-			<div class="card card-body">
-				<button class="label-gallery txt26 trans-0-4 is-actived current menu0" data-filter="*">
+			<div class="filter-tope-group card card-body" id="menu">
+				<!-- <button class="label-gallery txt26 trans-0-4 is-actived current menu0" data-filter="*">
 					2559
 				</button>
 
@@ -218,11 +218,16 @@
 				</button>
 				<button class="label-gallery txt26 trans-0-4 menu13" data-filter=".slide13">
 					2546
-				</button>
+				</button> -->
 			</div>
 		</div>
 	</div>
-	<div class="container">
+
+	<div class="isotope-grid" id="sp-zone">
+
+	</div>
+
+	<!-- <div class="container">
 		<div class="row slide slide0">
 			<table class="table wow table-hover">
 				<thead>
@@ -244,8 +249,7 @@
 					</tr>
 					<tr>
 						<td>59M_3</td>
-						<td>ระบบสนับสนุนการตัดสินใจเพื่อพิจารณาข้อมูลโครงการกิจกรรมนักศึกษา
-							Airport Rail Link</td>
+						<td>ระบบสนับสนุนการตัดสินใจเพื่อพิจารณาข้อมูลโครงการกิจกรรมนักศึกษา Airport Rail Link</td>
 					</tr>
 					<tr>
 						<td>59M_4</td>
@@ -254,7 +258,8 @@
 					</tr>
 					<tr>
 						<td>59M_5</td>
-						<td>การวิเคราะห์อัตราผลตอบแทนและความเสี่ยงของการลงทุนในตลาดหลักทรัพย์แห่งประเทศไทย หมวดเทคโนโลยีสารสนเทศและการสื่อสาร โดยใช้แบบจำลอง C A P M และ A P T
+						<td>การวิเคราะห์อัตราผลตอบแทนและความเสี่ยงของการลงทุนในตลาดหลักทรัพย์แห่งประเทศไทย หมวดเทคโนโลยีสารสนเทศและการสื่อสาร โดยใช้แบบจำลอง
+							C A P M และ A P T
 						</td>
 					</tr>
 					<tr>
@@ -274,7 +279,7 @@
 					</tr>
 					<tr>
 						<td>59M_9</td>
-						<td>ทฤษฎีการส่งสเปกตรัมจุดสำหรับเศษส่วนเชิงเส้น 
+						<td>ทฤษฎีการส่งสเปกตรัมจุดสำหรับเศษส่วนเชิงเส้น
 						</td>
 					</tr>
 					<tr>
@@ -427,7 +432,8 @@
 					</tr>
 					<tr>
 						<td>59M_40</td>
-						<td>การสร้างกลุ่มหลักทรัพย์การลงทุนใน SET 5 Index ตามแบบจำลอง CAPM (Capital Asset Pricing Mode) และ ART (Arbitrage Pricing Theory) กรณีข้อมูลมีการแจกแจงปกติ
+						<td>การสร้างกลุ่มหลักทรัพย์การลงทุนใน SET 5 Index ตามแบบจำลอง CAPM (Capital Asset Pricing Mode) และ ART (Arbitrage Pricing
+							Theory) กรณีข้อมูลมีการแจกแจงปกติ
 						</td>
 					</tr>
 					<tr>
@@ -529,7 +535,7 @@
 						<td>ฝึกประสบการณ์วิชาชีพครู ระดับมัธยม ชั้นปีที่ 3,4 ณ โรงเรียนเทศบาลประทุมคณาวาส (นิพันธ์หริณสูตร์)
 						</td>
 					</tr>
-					
+
 				</tbody>
 			</table>
 		</div>
@@ -1740,8 +1746,8 @@
 				</tbody>
 			</table>
 		</div>
-	</div>
-	
+	</div>  -->
+
 
 	<!-- Footer -->
 	<footer class="bg1">
@@ -1964,8 +1970,17 @@
 	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/isotope/isotope.pkgd.min.js"></script>
 	<!--===============================================================================================-->
-	<script src="js/main.js"></script>
+	<!-- <script src="js/main.js"></script> -->
 
+	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-storage.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-messaging.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
+
+	<script src="js/blog.js"></script>
 
 
 </html>
