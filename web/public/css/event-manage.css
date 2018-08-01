@@ -1,8 +1,8 @@
-a:focus {
+a.btn-show-gallery:focus {
 	outline: none !important;
 }
 
-a:hover {
+a.btn-show-gallery:hover {
 	text-decoration: none;
 	color: #f15c22;
 }
