@@ -1,3 +1,4 @@
+
 var eventPicRef = firebase.storage().ref().child('event_comming_pic');
 
 var eventRef = firebase.database().ref('event_comming');
@@ -54,6 +55,7 @@ function uploadImg1(){
         return snapshot.ref.getDownloadURL();
     })
     .then(downloadURL => {
+        console.log('1',downloadURL)
        eventRef.child('event_1').set(downloadURL)
     })
     inputImg1()
@@ -63,6 +65,7 @@ function uploadImg2(){
         return snapshot.ref.getDownloadURL();
     })
     .then(downloadURL => {
+        console.log('2',downloadURL)
        eventRef.child('event_2').set(downloadURL)
     })
     inputImg2()
@@ -72,6 +75,7 @@ function uploadImg3(){
         return snapshot.ref.getDownloadURL();
     })
     .then(downloadURL => {
+        console.log('3',downloadURL)
        eventRef.child('event_3').set(downloadURL)
     })
     inputImg3()
@@ -81,6 +85,7 @@ function uploadImg4(){
         return snapshot.ref.getDownloadURL();
     })
     .then(downloadURL => {
+        console.log('4',downloadURL)
        eventRef.child('event_4').set(downloadURL)
     })
     inputImg4()

@@ -137,6 +137,7 @@ function uploadImg6(){
 //on URL from firebase database
 
 eventOtherRef.child('event_1').once('value', function (snapshot) {
+    console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE2',snapshot.val())
     $('#img_other1').append(refresh_imgo_other1(snapshot.val()));
 })
 eventOtherRef.child('event_2').once('value', function (snapshot) {
