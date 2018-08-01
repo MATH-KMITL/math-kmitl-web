@@ -156,7 +156,7 @@
 
 <!-- Gallery -->
 <div class="section-gallery p-t-118 p-b-100">
-	<div class="wrap-label-gallery filter-tope-group t-center">
+	<div class="wrap-label-gallery t-center">
 		<p>
 			<button class="btn btn-all" style="margin-bottom: 10px; background-color: f39c12;" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
 			 aria-controls="collapseExample">
@@ -164,11 +164,11 @@
 			</button>
 		</p>
 		<div class="collapse" id="collapseExample">
-			<div class="card card-body">
+			<div class="filter-tope-group card card-body" id="menu">
 				<button class="label-gallery txt26 trans-0-4 is-actived" data-filter="*">
 					รูปภาพทั้งหมด
 				</button>
-
+				<!-- 
 				<button class="label-gallery txt26 trans-0-4" data-filter=".sportday">
 					วิทยา วิทยา
 				</button>
@@ -186,14 +186,15 @@
 				</button>
 				<button class="label-gallery txt26 trans-0-4" data-filter=".mitrata">
 					มุฐิตาจิต
-				</button>
+				</button> 
+				-->
 			</div>
 		</div>
 
 	</div>
 
-	<div class="wrap-gallery isotope-grid flex-w p-l-25 p-r-25">
-		<!--วิทยา วิทยา-->
+	<div class="wrap-gallery isotope-grid flex-w p-l-25 p-r-25" id="img">
+		<!--วิทยา วิทยา
 		<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom events sportday">
 			<img src="images/1/1.jpg" alt="IMG-GALLERY">
 
@@ -216,7 +217,7 @@
 			</div>
 		</div>
 
-		<!--ปฐมนิเทศและบายศรี-->
+		ปฐมนิเทศและบายศรี
 		<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom events primary">
 			<img src="images/2/1.jpg" alt="IMG-GALLERY">
 
@@ -273,7 +274,7 @@
 				<a class="btn-show-gallery flex-c-m fa fa-search" href="images/2/8.jpg" data-lightbox="gallery"></a>
 			</div>
 		</div>
-		<!--เปิดสายรหัส-->
+		เปิดสายรหัส
 		<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom events codeday">
 			<img src="images/3/1.jpg" alt="IMG-GALLERY">
 
@@ -316,7 +317,7 @@
 				<a class="btn-show-gallery flex-c-m fa fa-search" href="images/3/6.jpg" data-lightbox="gallery"></a>
 			</div>
 		</div>
-		<!--บายเนียร์-->
+		บายเนียร์
 		<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom events byenior">
 			<img src="images/4/1.jpg" alt="IMG-GALLERY">
 
@@ -373,7 +374,7 @@
 				<a class="btn-show-gallery flex-c-m fa fa-search" href="images/4/8.jpg" data-lightbox="gallery"></a>
 			</div>
 		</div>
-		<!--มุฐิตาจิต-->
+		มุฐิตาจิต
 		<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom events mitrata">
 			<img src="images/5/1.jpg" alt="IMG-GALLERY">
 
@@ -430,6 +431,7 @@
 				<a class="btn-show-gallery flex-c-m fa fa-search" href="images/5/8.jpg" data-lightbox="gallery"></a>
 			</div>
 		</div>
+		-->
 	</div>
 </div>
 
@@ -485,8 +487,16 @@
 <!--===============================================================================================-->
 <script type="text/javascript" src="vendor/isotope/isotope.pkgd.min.js"></script>
 <!--===============================================================================================-->
-<script src="js/main.js"></script>
+<!-- <script src="js/main.js"></script> -->
 
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
 
+<script src="js/gallery.js"></script>
 
 </html>

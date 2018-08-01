@@ -31,7 +31,6 @@ async function initial() {
 }
 
 initial().then(() => {
-    console.log('test na')
     var $topeContainer = $('.isotope-grid');
     var $filter = $('.filter-tope-group');
 
