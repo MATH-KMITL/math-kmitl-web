@@ -37,6 +37,7 @@ function signOut() {
 
 function resetPassword() {
     var email = localStorage.getItem('email');
+    // console.log(email);
     firebase.auth().sendPasswordResetEmail(email).then(
         function () {
             swal('กรุณาตรวจสอบข้อความ', 'ที่เข้าอีเมลของคุณเพื่อเปลี่ยนรหัสผ่าน', "success");
