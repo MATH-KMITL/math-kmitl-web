@@ -16,21 +16,26 @@ function createMenu(groupAndSub) {
         href: 'std-manage.html',
         icon: 'ti-id-badge'
     }, {
-        group: 'Events Comings',
-        href: 'events-comings.html',
-        icon: 'ti-image'
-    }, {
         group: 'Event Management',
-        href: 'event-manage.html',
-        icon: 'ti-map-alt'
-    }, {
-        group: 'Events Other',
-        href: 'events-other.html',
-        icon: 'ti-gallery'
+        href: '#', 
+        icon: 'ti-gallery',
+        submenu: [{
+            group: 'Events Comings',
+            href: 'events-comings.html',
+            icon: 'ti-pin-alt'
+        }, {
+            group: 'Event Galley',
+            href: 'event-manage.html',
+            icon: 'ti-gallery'
+        }, {
+            group: 'Events Other',
+            href: 'events-other.html',
+            icon: 'ti-image'
+        }]
     }, {
         group: 'Special Problems Management',
         href: 'special-problems-manage.html',
-        icon: 'ti-clipboard'
+        icon: 'ti-bookmark-alt'
     }, {
         group: 'Document Management',
         href: '#', // document-manager-bachelor.html
@@ -38,24 +43,24 @@ function createMenu(groupAndSub) {
         submenu: [{
             group: 'Bachelor',
             href: 'document-manager-bachelor.html',
-            icon: 'ti-list'
+            icon: ''
         }, {
             group: 'Master',
             href: 'document-manager-master.html',
-            icon: 'ti-id-badge'
+            icon: ''
         }, {
             group: 'Doctor',
             href: 'document-manager-doctor.html',
-            icon: 'ti-image'
+            icon: ''
         }, {
             group: 'Inside',
             href: 'document-manager-inside.html',
-            icon: 'ti-map-alt'
+            icon: 'ti-agenda'
         }]
     }]
     if (grouplist.some(g => g.group === group)) {
         grouplist.forEach(g => {
-            const cGrroup = group.split(' ').join('-')
+            const cGrroup = g.group.split(' ').join('-')
             let html = ''
             html += g.group === group ? '<li class="active">' : '<li>'
             html += g.submenu ? `<a href="${g.group === group ? '#' : g.href}" onclick="openSubmenu('${cGrroup}')">` : `<a href="${g.group === group ? '#' : g.href}">`
@@ -67,7 +72,7 @@ function createMenu(groupAndSub) {
             if (g.submenu) {
                 g.submenu.forEach(sg => {
                     let shtml = ''
-                    shtml += sg.group === subgroup ? `<li class="active test ${cGrroup}">` : `<li class=" test ${cGrroup}">`
+                    shtml += sg.group === subgroup ? `<li class="active ${cGrroup}">` : `<li class="${cGrroup}">`
                     shtml += sg.group === subgroup ? '<a href="#" >' : `<a href="${sg.href}" >`
                     shtml += '<i class="ti-control-play"></i>'
                     shtml += sg.group === subgroup ? `<i class="${sg.icon}"></i>` : `<i class="${sg.icon}" aria-hidden="true"></i>`
