@@ -77,7 +77,7 @@ const positions = [{
 }]
 
 function teacherHtml(name, position) { // id="teacher-zone-bachelor"  
-    console.log(position)
+    // console.log(position)
     let html = ''
     html += '<div class="item-mainmenu m-b-20">'
     html += '<div class="flex-w flex-b">'

@@ -24,7 +24,7 @@ async function initial() {
             // add img zone 
             Object.keys(categoryData.image).forEach(function (imgKey) {
                 $('#img').append(imgHtml(key, categoryData.image[imgKey].url))
-                console.log('imgKey', imgKey)
+                // console.log('imgKey', imgKey)
             })
         });
     });
@@ -80,7 +80,7 @@ function menuHtml(key, categoryName) {
 }
 
 function imgHtml(key, img) {
-    console.log(img)
+    // console.log(img)
     let html = ''
     html += `<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom events ${key}">`
     html += `<img src=${img} alt="IMG-GALLERY">`

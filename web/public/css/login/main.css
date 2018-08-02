@@ -5,10 +5,10 @@
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
-@font-face {
+/* @font-face {
   font-family: Kanit-Regular;
   src: url('../../fonts/kanit/Kanit-Regular.ttf'); 
-}
+} */
 
 @font-face {
   font-family: Kanit-Medium;
@@ -40,12 +40,12 @@
 
 body, html {
 	height: 100%;
-  font-family: Kanit-Regular, sans-serif;
+  /* font-family: Kanit-Regular, sans-serif; */
 }
 
 /*---------------------------------------------*/
 a {
-	font-family: Kanit-Regular;
+	/* font-family: Kanit-Regular; */
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -71,7 +71,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-	font-family: Kanit-Regular;
+	/* font-family: Kanit-Regular; */
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -137,14 +137,14 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: Kanit-Regular;
+  /* font-family: Kanit-Regular; */
   font-size: 14px;
   line-height: 1.5;
   color: #666666;
 }
 
 .txt2 {
-  font-family: Kanit-Regular;
+  /* font-family: Kanit-Regular; */
   font-size: 14px;
   line-height: 1.5;
   color: #333333;
@@ -217,7 +217,7 @@ iframe {
 }
 
 .label-input100 {
-  font-family: Kanit-Regular;
+  /* font-family: Kanit-Regular; */
   font-size: 14px;
   color: #333333;
   line-height: 1.5;
@@ -398,7 +398,7 @@ iframe {
   right: 2px;
   pointer-events: none;
 
-  font-family: Kanit-Regular;
+  /* font-family: Kanit-Regular; */
   color: #c80000;
   font-size: 13px;
   line-height: 1.4;

@@ -58,54 +58,54 @@
  /* CHECKBOX PLUGIN DEFINITION
   * ======================== */
 
-  var old = $.fn.checkbox
+  // var old = $.fn.checkbox
 
-  $.fn.checkbox = function (option) {
-    return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('checkbox')
-        , options = $.extend({}, $.fn.checkbox.defaults, $this.data(), typeof option == 'object' && option);
-      if (!data) $this.data('checkbox', (data = new Checkbox(this, options)));
-      if (option == 'toggle') data.toggle()
-      if (option == 'check' || option == 'uncheck') data.setCheck(option)
-      else if (option) data.setState();
-    });
-  }
+  // $.fn.checkbox = function (option) {
+  //   return this.each(function () {
+  //     var $this = $(this)
+  //       , data = $this.data('checkbox')
+  //       , options = $.extend({}, $.fn.checkbox.defaults, $this.data(), typeof option == 'object' && option);
+  //     if (!data) $this.data('checkbox', (data = new Checkbox(this, options)));
+  //     if (option == 'toggle') data.toggle()
+  //     if (option == 'check' || option == 'uncheck') data.setCheck(option)
+  //     else if (option) data.setState();
+  //   });
+  // }
 
-  $.fn.checkbox.defaults = {
-    template: '<span class="icons"><span class="first-icon fa fa-square fa-base"></span><span class="second-icon fa fa-check-square fa-base"></span></span>'
-  }
+  // $.fn.checkbox.defaults = {
+  //   template: '<span class="icons"><span class="first-icon fa fa-square fa-base"></span><span class="second-icon fa fa-check-square fa-base"></span></span>'
+  // }
 
 
  /* CHECKBOX NO CONFLICT
   * ================== */
 
-  $.fn.checkbox.noConflict = function () {
-    $.fn.checkbox = old;
-    return this;
-  }
+  // $.fn.checkbox.noConflict = function () {
+  //   $.fn.checkbox = old;
+  //   return this;
+  // }
 
 
  /* CHECKBOX DATA-API
   * =============== */
 
-  $(document).on('click.checkbox.data-api', '[data-toggle^=checkbox], .checkbox', function (e) {
-    var $checkbox = $(e.target);
-    if (e.target.tagName != "A") {
-      e && e.preventDefault() && e.stopPropagation();
-      if (!$checkbox.hasClass('checkbox')) $checkbox = $checkbox.closest('.checkbox');
-      $checkbox.find(':checkbox').checkbox('toggle');
-    }
-  });
+//   $(document).on('click.checkbox.data-api', '[data-toggle^=checkbox], .checkbox', function (e) {
+//     var $checkbox = $(e.target);
+//     if (e.target.tagName != "A") {
+//       e && e.preventDefault() && e.stopPropagation();
+//       if (!$checkbox.hasClass('checkbox')) $checkbox = $checkbox.closest('.checkbox');
+//       $checkbox.find(':checkbox').checkbox('toggle');
+//     }
+//   });
 
-  $(function () {
-    $('input[type="checkbox"]').each(function () {
-      var $checkbox = $(this);
-      $checkbox.checkbox();
-    });
-  });
+//   $(function () {
+//     $('input[type="checkbox"]').each(function () {
+//       var $checkbox = $(this);
+//       $checkbox.checkbox();
+//     });
+//   });
 
-}(window.jQuery);
+// }(window.jQuery);
 
 /* =============================================================
  * flatui-radio v0.0.3
@@ -245,4 +245,4 @@
     });
   });
 
-}(window.jQuery);
+}(window.jQuery);}

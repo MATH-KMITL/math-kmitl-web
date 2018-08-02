@@ -77,7 +77,7 @@ function createMenu(groupAndSub) {
                     $('#menu-admin').append(shtml)
                 })
                 stateHidden[cGrroup] = true
-                console.log(subgroup, g.submenu.some(sg => sg.group === subgroup))
+                // console.log(subgroup, g.submenu.some(sg => sg.group === subgroup))
                 if (!g.submenu.some(sg => sg.group === subgroup)) {
                     $(`.${cGrroup}`).hide()
                 }

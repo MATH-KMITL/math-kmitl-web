@@ -141,17 +141,21 @@ function createModal(teacher, count,key) {
   html += '<h3 style="color:black;">การศึกษา</h3>';
   html += '<section class="user-bio">';
   var education = teacher.education;
-  for (i = 0; i < education.length; i++) {
-    if (education[i] != '-')
-      html += ' - ' + education[i] + '<BR>';
+  if(education){
+    for (i = 0; i < education.length; i++) {
+      if (education[i] != '-')
+        html += ' - ' + education[i] + '<BR>';
+    }
   }
   html += '</section>';
   html += '<h3 style="color:black;">สาขาที่เชี่ยวชาญ/สนใจ</h3>';
   html += '<section class="user-bio">';
   var specialized_interests = teacher.specialized_interests;
-  for (i = 0; i < specialized_interests.length; i++) {
-    if (specialized_interests[i] != '-')
-      html += ' - ' + specialized_interests[i] + '<BR>';
+  if(specialized_interests){
+    for (i = 0; i < specialized_interests.length; i++) {
+      if (specialized_interests[i] != '-')
+        html += ' - ' + specialized_interests[i] + '<BR>';
+    }
   }
   var re_flag = false;
   var research_file_arr = new Array();
@@ -162,10 +166,10 @@ function createModal(teacher, count,key) {
           research_file_arr.push(research_file[i].substring(research_file[i].length-1));
       }
     }
-    console.log(research_file_arr)
+    // console.log(research_file_arr)
   }
 
-  console.log(key);
+  // console.log(key);
   // console.log(urlFile);
 
   html += '</section>';
@@ -173,21 +177,23 @@ function createModal(teacher, count,key) {
   html += '<section class="user-bio">';
   var url;
   var research = teacher.research;
-  for (i = 0; i < research.length; i++) {
-    if (research[i] != '-'){
-      for(j = 0; j < research_file_arr.length; j++){
-        re_flag = false;
-        if(i == research_file_arr[j]){
-          re_flag = true;
-          url = 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/research_file%2F'+key+'-file'+research_file_arr[j]+'.pdf'+'?alt=media';
-          break;
+  if(research){
+    for (i = 0; i < research.length; i++) {
+      if (research[i] != '-'){
+        for(j = 0; j < research_file_arr.length; j++){
+          re_flag = false;
+          if(i == research_file_arr[j]){
+            re_flag = true;
+            url = 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/research_file%2F'+key+'-file'+research_file_arr[j]+'.pdf'+'?alt=media';
+            break;
+          }
         }
-      }
-      if(re_flag){
-        console.log(url);
-        html += '<a href="'+ url +'" target="_blank">'+ ' - ' + research[i] +'</a>'  + '<BR>';
-      }else{
-        html += ' - ' + research[i] + '<BR>';
+        if(re_flag){
+          // console.log(url);
+          html += '<a href="'+ url +'" target="_blank">'+ ' - ' + research[i] +'</a>'  + '<BR>';
+        }else{
+          html += ' - ' + research[i] + '<BR>';
+        }
       }
     }
   }
@@ -196,9 +202,11 @@ function createModal(teacher, count,key) {
   html += '<h3 style="color:black;">รายวิชาที่รับผิดชอบ</h3>';
   html += '<section class="user-bio">';
   var responsible_course = teacher.responsible_course;
-  for (i = 0; i < responsible_course.length; i++) {
-    if (responsible_course[i] != '-')
-      html += ' - ' + responsible_course[i] + '<BR>';
+  if(responsible_course){
+    for (i = 0; i < responsible_course.length; i++) {
+      if (responsible_course[i] != '-')
+        html += ' - ' + responsible_course[i] + '<BR>';
+    }
   }
   html += '</section>';
   html += '</section>';

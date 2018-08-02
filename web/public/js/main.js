@@ -160,7 +160,7 @@
     $filter.each(function () {
         $filter.on('click', 'button', function () {
             var filterValue = $(this).attr('data-filter');
-            $topeContainer.isotope({ filter: filterValue });
+            // $topeContainer.isotope({ filter: filterValue });
         });
 
     });

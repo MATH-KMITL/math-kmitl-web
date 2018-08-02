@@ -15,10 +15,10 @@
  */
 /*      light colors - used for select dropdown         */
 
-@font-face {
+/* @font-face {
   font-family: 'Kanit';
   src: url('../fonts/montserrat/Kanit-Regular.ttf'); 
-}
+} */
 
 .ct-blue {
   stroke: #7A9E9F !important; }

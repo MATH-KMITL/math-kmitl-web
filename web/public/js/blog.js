@@ -24,7 +24,7 @@ async function initial() {
             } else {
                 $('#menu').append(menuHtml(year));
             }
-            console.log(year)
+            // console.log(year)
             // add sp zone 
             $('#sp-zone').append(groupHtml(year))
             Object.keys(data).sort((a, b) => (a.split('M_')[1] - b.split('M_')[1])).forEach(function (spKey) {

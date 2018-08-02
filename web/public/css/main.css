@@ -54,10 +54,10 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   src: url('../fonts/montserrat/Montserrat-Regular.ttf'); 
 }
 
-@font-face {
+/* @font-face {
   font-family: Kanit-Regular;
   src: url('../fonts/montserrat/Kanit-Regular.ttf'); 
-}
+} */
 @font-face {
   font-family: Montserrat-Bold;
   src: url('../fonts/montserrat/Montserrat-Bold.ttf'); 

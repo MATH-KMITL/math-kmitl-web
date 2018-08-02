@@ -58,7 +58,9 @@ tdRef.once('value', function (snapshot) {
 function reAuthen() {
     var email = localStorage.getItem('email');
     var password = localStorage.getItem('pass');
-    firebase.auth().signInWithEmailAndPassword(email, password)
+
+    if(password != null){
+        firebase.auth().signInWithEmailAndPassword(email, password)
         .then(function (resp) {
         })
         .catch(function (error) {
@@ -71,6 +73,7 @@ function reAuthen() {
                 alert('errorMessage');
             }
         });
+    }
 }
 
 function signOut() {
