@@ -129,3 +129,26 @@ function refresh_img4(Pic4) {
     html += "</div>";
     return html;
 }
+
+function signOut() {
+    firebase.auth().signOut().then(function () {
+        localStorage.clear();
+        swal('ออกจากระบบ', 'เสร็จสิ้น!', "success").then(function (value) { window.location.href = 'index.html' });
+    }).catch(function (error) {
+        swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
+        //console.log(error);
+    });
+}
+
+function resetPassword() {
+    var email = localStorage.getItem('email');
+    firebase.auth().sendPasswordResetEmail(email).then(
+        function () {
+            swal('กรุณาตรวจสอบข้อความ', 'ที่เข้าอีเมลของคุณเพื่อเปลี่ยนรหัสผ่าน', "success");
+        }).catch(
+            function (error) {
+                swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
+                //console.log(error);
+            }
+        )
+}
