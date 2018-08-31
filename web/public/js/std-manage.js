@@ -1,46 +1,82 @@
 //config to connect to firebase
+// var config = {
+//     apiKey: "AIzaSyDHN6epAFTpGwywxeqKpc1vzNERGLYfguE",
+//     authDomain: "math-web-kmitl.firebaseapp.com",
+//     databaseURL: "https://math-web-kmitl.firebaseio.com",
+//     projectId: "math-web-kmitl",
+//     storageBucket: "math-web-kmitl.appspot.com",
+// };
 var config = {
     apiKey: "AIzaSyDHN6epAFTpGwywxeqKpc1vzNERGLYfguE",
     authDomain: "math-web-kmitl.firebaseapp.com",
     databaseURL: "https://math-web-kmitl.firebaseio.com",
     projectId: "math-web-kmitl",
     storageBucket: "math-web-kmitl.appspot.com",
+    messagingSenderId: "481311539108"
 };
 firebase.initializeApp(config);
 
 //prepare to get student from firebase database
 var tdRef = firebase.database().ref('student');
-var yRef = firebase.database().ref('max_year');
-yRef.once('value', function (snapshot) {
-    sessionStorage.setItem("max_year", snapshot.val())
-});
+var stRef = firebase.storage().ref().child('student_pic');
+
+// set format student data
+// tdRef.once('value', (snapshot) => {
+//     const newStudent = {}
+//     Object.keys(snapshot.val()).forEach(y => {
+//         newStudent[y] = {}
+//         Object.keys(snapshot.val()[y]).forEach(s => {
+//             if (s.substr(0, 4) === 'user') {
+//                 const { user_id, name, surname, title } = snapshot.val()[y][s]
+//                 newStudent[y][user_id] = {
+//                     name,
+//                     surname,
+//                     title
+//                 }
+//             } else {
+//                 newStudent[y][s] = snapshot.val()[y][s]
+//             }
+
+//         })
+//     })
+//     tdRef.set(newStudent)
+// })
+
+var students = []
+
 //load data once per refresh not realtime
 tdRef.once('value', function (snapshot) {
-    count = 5;
     var table = $('#student-table tbody');
+    const result = snapshot.val()
+    const freshy = result['freshy']
     //for in every child of data
-    snapshot.forEach(function (childSnapshot) {
-        count -= 1;
-        count_s = 0;
-        var key = childSnapshot.key;
-        var childData = childSnapshot.val();
-        for (i in childData) {
-            count_s += 1;
-            table.append(studentTab(childData[i], pad(count_s), key));
+    Object.keys(result).forEach(function (key) {
+        if (key !== 'freshy') {
+            var childData = result[key];
+            for (i in childData) {
+                students.push(i)
+                table.append(studentTab(i, childData[i].name, childData[i].surname));
+            }
+            $('#selctFreshy').append(`<option ${freshy === key.substr(4, 2) && 'selected'}> ${key.substr(4, 2)} </option>`)
+            //     document.querySelector('#teacher-list')
+            // .innerHTML += teacherCard(childData, count);
         }
-        //     document.querySelector('#teacher-list')
-        // .innerHTML += teacherCard(childData, count);
     });
     page();
 });
-function studentTab(student, id, key) {
+
+$('#selctFreshy').on('change', function ({ target: { selectedOptions: { 0: { outerText } } } }) {
+    tdRef.child('freshy').set(outerText.trim())
+})
+
+function studentTab(sID, name, surname) {
     var html = '';
     html += '<tr>';
-    html += '<td>' + student.user_id + '</td>';
-    html += '<td>' + student.name + '</td>';
-    html += '<td>' + student.surname + '</td>';
-    html += '<td>' + '<button class="btn btn-all" onclick = "editStd(this.id)" id="' + key + '-' + id + '">' + 'Edit' + '</button>' + '</td>';
-    html += '<td>' + '<button class="btn btn-del" onclick = "deleteStd(this.id)" id="' + key + '-' + id + '">' + 'Delete' + '</button>' + '</td>';
+    html += '<td>' + sID + '</td>';
+    html += '<td>' + name + '</td>';
+    html += '<td>' + surname + '</td>';
+    html += '<td>' + '<button class="btn btn-all" onclick = "editStd(this.id)" id="' + sID + '">' + 'Edit' + '</button>' + '</td>';
+    html += '<td>' + '<button class="btn btn-del" onclick = "deleteStd(this.id)" id="' + sID + '">' + 'Delete' + '</button>' + '</td>';
     html += '</tr>';
     return html;
 }
@@ -84,8 +120,7 @@ function page() {
 }
 
 function deleteStd(id) {
-    year = id.split("-")[0];
-    std_id = id.split("-")[1];
+    const year = ['year', id.substr(0, 2)].join('')
     swal({
         title: "คำเตือน",
         text: "ถ้าคุณลบแล้วจะไม่สามารถกู้ข้อมูลกลับมาได้อีก",
@@ -93,9 +128,10 @@ function deleteStd(id) {
         buttons: true,
         dangerMode: true,
     })
-        .then((willDelete) => {
+        .then(async (willDelete) => {
             if (willDelete) {
-                tdRef.child(year + '/user' + std_id).remove();
+                await tdRef.child(`${year}/${id}`).remove()
+                await stRef.child(`${year}/${id}.jpg`).delete()
                 swal("ข้อมูลนักศึกษาคนนี้ถูกลบไปแล้ว", {
                     icon: "success",
                 }).then(function (value) { window.location.href = 'std-manage.html' });
@@ -104,19 +140,21 @@ function deleteStd(id) {
 }
 
 function editStd(id) {
-    sessionStorage.setItem('std_value', id.split("-"));
+    sessionStorage.setItem('std_value', id);
     window.location.href = "std-edit.html";
 }
 
 var file
 
 $("#data").on('change', function (e) {
-    file = e.target.files[0] 
+    file = e.target.files[0]
     document.getElementById('import button').hidden = false
 })
 
 //ฟังก์ชั่น import ไฟล์ excel
 function importFile() {
+    document.getElementById('import button').hidden = true
+    document.getElementById('txt_wait_upload').hidden = false
     const reader = new FileReader();
     reader.onload = (e) => {
         const dataTemp = e.target.result;
@@ -125,31 +163,57 @@ function importFile() {
         // read 
         let dataForFirebase = {}
         data.forEach(row => { // ถ้าไม่มี รหัสนศ คำนำหน้าชื่อ ชื่อ นามสกุล หรือ รหัสนศ ไม่ครบ 8 ตำแหน่ง หรือมีอักษร จะไม่เพิ่ม นศ
-            if (row['B'] && row['C'] && row['D'] && row['E'] && row['A'].trim().length === 8 && !isNaN(parseInt(row['A'].trim(), 10))) {
+            if (row['B'] && row['C'] && row['D'] && row['A'].trim().length === 8 && !isNaN(parseInt(row['A'].trim(), 10))) {
                 const key = ['year', row['A'].substr(0, 2)].join('')  // เช็คว่าอยู่ ปีไหน (ซึ่งเช็คทุกคน)
                 dataForFirebase[key] = dataForFirebase[key] || {} // initial
-                dataForFirebase[key][row.E] = {
+                dataForFirebase[key][row.A] = {
                     name: row.C,
                     surname: row.D,
-                    title: row.B,
-                    user_id: row.A
+                    title: row.B
                 }
             }
         })
         // upload 
-        Object.keys(dataForFirebase).forEach(key => { // set ตามรหัสนศ 2 ตัวแรก
-            tdRef.child(key).set(dataForFirebase[key])
+        Object.keys(dataForFirebase).forEach(ykey => { // set ตามรหัสนศ 2 ตัวแรก
+            Object.keys(dataForFirebase[ykey]).forEach(async (sID) => {
+                await tdRef.child(ykey).child(sID).set(dataForFirebase[ykey][sID])
+            })
+
         })
-        const years = Object.keys(dataForFirebase).map(key => key.substr(4, 2)) // ชั้นปีที่ เพิ่งเพิ่มมา
-        console.log(years);
-        yRef.once('value', snapshot => {
-            years.push(snapshot.val()) // เพิ่มชั้นปีที่มากที่สุด (max_year)
-            yRef.set(years.sort()[years.length - 1])
-        }).then(() => {
-            // refresh 
-            swal("เพิ่มนักศึกษา","ปีการศึกษา "+years[1],"success").then(function (){window.location.href = 'std-manage.html'});
-           
-        })
+        // refresh 
+        swal("เพิ่มนักศึกษา", "ปีการศึกษา " + Object.keys(dataForFirebase).map(y => [' 25'].concat(y.split('year')).join('')), "success").then(function () { window.location.href = 'std-manage.html' });
+
     }
     reader.readAsBinaryString(file);
 }
+
+// เพิ่มรูปภาพ
+$("#input-img").on('change', function ({ target: { files } }) { // e.target.files 
+    if (files) {
+        swal({
+            title: "คำเตือน",
+            text: " กรุณาตั้งชื่อภาพตามรหัสนักศึกษา \n จะเพิ่มแค่นักศึกษาที่อยู่ในระบบ และไฟล์เป็น .jpg (ตัวเล็กเท่านั้น) ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then(willDelete => {
+                if (willDelete) {
+                    document.getElementById('upload_pic').hidden = true
+                    document.getElementById('txt_wait_pic').hidden = false
+                    let num = 0
+                    Object.keys(files).map(key => files[key]).forEach(async (file) => {
+                        const name = file.name.split('.')[0]
+                        const name_end = file.name.split('.')[1]
+                        if (students.some(s => s === name) && 'jpg' === name_end) {
+                            num++
+                            await stRef.child(`${['year', name.substr(0, 2)].join('')}/${name}.jpg`).put(file)
+                        }
+                    })
+                    swal(` อัพโหลดรูปแล้วทั้งหมด ${num} รูป `, {
+                        icon: "success",
+                    }).then(function (value) { window.location.href = 'std-manage.html' });
+                }
+            });
+    }
+})

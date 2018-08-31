@@ -132,7 +132,21 @@
                                 <span class="btn btn-success btn-file ">+ Import File รายชื่อนักศึกษา
                                     <input type="file" id="data" accept=".xlsx,.xls">
                                 </span>
-                                <span class="btn btn-success btn-file " id="import button" hidden onclick="importFile()">ยืนยัน </span>
+
+                                <span class="btn btn-success btn-file " id="import button" hidden onclick="importFile()">ยืนยัน
+                                    </span>
+                                <span id="txt_wait_upload" hidden> กรุณารอสักครู่ ... </span>
+
+                                <span class="btn btn-success btn-file " id="upload_pic" >+ รูปภาพนักศึกษา
+                                    <input type="file" id="input-img" accept="image/*" multiple>
+                                </span>
+                                <span id="txt_wait_pic" hidden> กรุณารอสักครู่ ... </span>
+
+                                <span> นักศึกษาปี 1 รหัส: 
+                                    <select class="form-control border-input" id="selctFreshy" class="form-control">
+                                        <option>กรุณาเลือกรหัส</option> 
+                                    </select>
+                                </span> 
 
                             </div>
                         </div>

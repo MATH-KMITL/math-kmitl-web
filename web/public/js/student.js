@@ -1,44 +1,52 @@
 //config to connect to firebase
+// var config = {
+//     apiKey: "AIzaSyDHN6epAFTpGwywxeqKpc1vzNERGLYfguE",
+//     authDomain: "math-web-kmitl.firebaseapp.com",
+//     databaseURL: "https://math-web-kmitl.firebaseio.com",
+//     projectId: "math-web-kmitl",
+//     storageBucket: "math-web-kmitl.appspot.com",
+// };
 var config = {
     apiKey: "AIzaSyDHN6epAFTpGwywxeqKpc1vzNERGLYfguE",
     authDomain: "math-web-kmitl.firebaseapp.com",
     databaseURL: "https://math-web-kmitl.firebaseio.com",
     projectId: "math-web-kmitl",
     storageBucket: "math-web-kmitl.appspot.com",
+    messagingSenderId: "481311539108"
 };
 firebase.initializeApp(config);
 //prepare to get image from firebase storage
 //prepare to get teacher from firebase database
 var tdRef = firebase.database().ref('student');
-var yRef = firebase.database().ref('max_year');
-yRef.once('value', function (snapshot) {
-    sessionStorage.setItem("max_year", snapshot.val())
-});
+
 //load data once per refresh not realtime
 tdRef.once('value', function (snapshot) {
-    count = 5;
+    const result = snapshot.val()
+    const freshy = result['freshy']
+    let count = 0
     //for in every child of data
-    snapshot.forEach(function (childSnapshot) {
-        count_s = 0;
-        var key = childSnapshot.key;
-        var childData = childSnapshot.val();
-        if (parseInt(key.slice(4, 6)) > parseInt(String(sessionStorage.getItem("max_year"))) - 4) {
-            count -= 1;
-            for (i in childData) {
-                count_s += 1;
-                $('#student-' + pad(count)).append(studentCard(childData[i], pad(count_s), key));
+    Object.keys(result).reverse().forEach(function (key) {
+        if (key !== 'freshy') {
+            console.log(key.substr(4, 2), parseInt(freshy, 10) - count)
+            if (key.substr(4, 2) == parseInt(freshy, 10) - count) {
+                var childData = result[key];
+                count++
+                Object.keys(childData).forEach(id => {
+                    $(`#student-00${count}`).append(studentCard(id, `${childData[id].title}${childData[id].name} ${childData[id].surname}`, key));
+                })
+                //     document.querySelector('#teacher-list')
+                // .innerHTML += teacherCard(childData, count);
             }
         }
-        //     document.querySelector('#teacher-list')
-        // .innerHTML += teacherCard(childData, count);
+
     });
 });
 
-function studentCard(teacher, count, year) {
+function studentCard(sID, fullName, yearID) {
     var html = '';
-    var fileName = 'user' + count + '.jpg';
-    var imagesRef = 'student_pic%2F' + year + '%2F' + fileName;
-    var urlIm = 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/' + imagesRef + '?alt=media';
+    var imagesRef = `student_pic%2F${yearID}%2F${sID}.jpg`
+    // var urlIm = 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/' + imagesRef + '?alt=media';
+    var urlIm = 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl2.appspot.com/o/' + imagesRef + '?alt=media';
     html += '<div class="col-md-8 col-lg-4 m-l-r-auto p-b-30">';
     html += '<div class="blo5 pos-relative p-t-60">';
     html += '<div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">';
@@ -50,9 +58,9 @@ function studentCard(teacher, count, year) {
     html += '</div>';
     html += '</div>';
     html += '<div class="text-blo5 size35 t-center bo-rad-10 bo7 p-t-90 p-l-35 p-r-35 p-b-30">';
-    html += '<div class="txt34 dis-block p-b-6">' + teacher.title + '' + teacher.name + ' ' + teacher.surname + '</div>';
+    html += '<div class="txt34 dis-block p-b-6">' + fullName + '</div>';
     html += '<p class="t-center">';
-    html += 'รหัสนักศึกษา : ' + teacher.user_id + '</p>';
+    html += 'รหัสนักศึกษา : ' + sID + '</p>';
     html += '</div>';
     html += '</div>';
     html += '</div>';
@@ -77,11 +85,6 @@ function studentCard(teacher, count, year) {
                     </div>
                 </div>
             </div> */}
-
-
-function pad(d) {
-    return (d < 10) ? '00' + d.toString() : (d < 100) ? '0' + d.toString() : d.toString();
-}
 
 window.alert = function () {
     $("#myModal .modal-body").text(arguments[0]);
