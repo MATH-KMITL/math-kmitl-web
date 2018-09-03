@@ -45,8 +45,8 @@ tdRef.once('value', function (snapshot) {
 function studentCard(sID, fullName, yearID) {
     var html = '';
     var imagesRef = `student_pic%2F${yearID}%2F${sID}.jpg`
-    // var urlIm = 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/' + imagesRef + '?alt=media';
-    var urlIm = 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl2.appspot.com/o/' + imagesRef + '?alt=media';
+    var urlIm = 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/' + imagesRef + '?alt=media';
+    // var urlIm = 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl2.appspot.com/o/' + imagesRef + '?alt=media';
     html += '<div class="col-md-8 col-lg-4 m-l-r-auto p-b-30">';
     html += '<div class="blo5 pos-relative p-t-60">';
     html += '<div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">';
